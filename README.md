@@ -11,7 +11,7 @@ The list of features that we implemented:
 Note: This feature is incomplete because at that time the project was not connected to a database.
 
 
-2-Linking the project to Firebase (20/3/2024) // done
+2-Linking the project to Firebase (20/3/2024) // done 
 Note: It took us a long time to link because downloading the filter was incorrect, so we faced many problems.
 
 3-Creating a login page (1/4/2024) // done
@@ -20,7 +20,7 @@ Note: It took us a long time to link because downloading the filter was incorrec
 
 5-Creating a registration page (2/4/2024) // done
 
-6-Creating a bottom bar and linking all features in one project (22/4/2024) // done
+6-Creating a Bottom navigation bar and linking all features in one project (22/4/2024) // done 
 Note: The first feature was in a separate file.
 
 

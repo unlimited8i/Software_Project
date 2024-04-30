@@ -69,9 +69,9 @@ void clear(){
   Widget build(BuildContext context) { 
     return Consumer<WorkoutData>(
       builder:(context, value, child) => Scaffold(
-      appBar: AppBar(
-        title: const Text('E-Workout')
-      ),
+      // appBar: AppBar(
+      //   title: const Text('E-Workout')
+      // ), // No need for this becuase i added appbar on the nav_bar file
       floatingActionButton: FloatingActionButton(
         onPressed: createNewWorkout,
         child: const Icon(Icons.add),

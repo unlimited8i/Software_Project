@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/account.dart';
-import 'package:flutter_application_1/pages/chat.dart';
-import 'package:flutter_application_1/pages/history.dart';
-import 'package:flutter_application_1/pages/home.dart';
+import 'package:flutter_application_1/pages/account_page.dart';
+import 'package:flutter_application_1/pages/chat_page.dart';
+import 'package:flutter_application_1/pages/history_page.dart';
+import 'package:flutter_application_1/pages/home_page.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -34,6 +34,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        title: Center(
+          child: Text("E-workout") ),
+      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,

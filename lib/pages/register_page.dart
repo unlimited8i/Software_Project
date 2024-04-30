@@ -1,42 +1,39 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/services/auth/auth_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RegisterPage extends StatefulWidget {
-  final VoidCallback showLoginPage;
-  const RegisterPage({
-    Key? key,
-    required this.showLoginPage
-    }) : super(key: key);
+class RegisterPage extends StatelessWidget {
 
-  @override
-  State<RegisterPage> createState() => _RegisterPageState();
-}
-
-class _RegisterPageState extends State<RegisterPage> {
-
-  
   //Text controllers
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
 
+  // tap to go to the login page
+  final void Function()? onTap;
 
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+  RegisterPage({super.key, required this.onTap});
 
-  Future signUp() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim()
-      );
 
+  void register(BuildContext context) async{
+    //auth service
+    final _auth = AuthService();
+
+    try{
+      await _auth.signUpWithEmailPassword(
+        _emailController.text,
+         _passwordController.text ,
+         );
+    }
+    catch (e) {
+      showDialog(context: context, builder: (context) => AlertDialog(
+        title: Text(e.toString()),
+      ));
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -124,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: GestureDetector(
-                    onTap: signUp,
+                    onTap: () => register(context),
                     child: Container(
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
@@ -157,7 +154,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
-                      onTap: widget.showLoginPage,
+                      onTap: onTap,
                       child: Text(
                         ' Login now',
                         style: TextStyle(

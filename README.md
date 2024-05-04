@@ -7,9 +7,12 @@ Therefore, we divided the project into small features and worked on them.
 
 The list of features that we implemented:
 
-1-Creating Pre-built workout scheduels and allowing the user to create scheduels (5/3/2024) // In progress
+In progress:
+
+1-Creating Pre-built workout scheduels and allowing the user to create scheduels (5/3/2024) // In progress 45%
 Note: This feature is incomplete because at that time the project was not connected to a database.
 
+Done:
 
 2-Linking the project to Firebase (20/3/2024) // done 
 Note: It took us a long time to link because downloading the filter was incorrect, so we faced many problems.
@@ -23,6 +26,7 @@ Note: It took us a long time to link because downloading the filter was incorrec
 6-Creating a Bottom navigation bar and linking all features in one project (22/4/2024) // done 
 Note: The first feature was in a separate file.
 
+7-creating chat page (5/5/2024) // done
 
 
 At the moment, there are no problems and we will try to connect the first feature with Firebase.

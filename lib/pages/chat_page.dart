@@ -5,13 +5,14 @@ import 'package:flutter_application_1/components/user_tile.dart';
 import 'package:flutter_application_1/pages/conversation_page.dart';
 import 'package:flutter_application_1/services/auth/auth_page.dart';
 import 'package:flutter_application_1/services/chat/chat_service.dart';
+import 'package:flutter_application_1/services/auth/auth_service.dart';
 
 
 class UserChat extends StatelessWidget {
 
   // chat & auth services
   final ChatService _chatService = ChatService();
-  final AuthPage _authPage = AuthPage();
+  final AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -42,19 +43,25 @@ class UserChat extends StatelessWidget {
   }
 
   // build individual list tile for user
-  Widget _buliduserListItem(Map<String,dynamic> userData, BuildContext context){
+  Widget _buliduserListItem(
+    Map<String,dynamic> userData, BuildContext context){
     //display all users exept current user
-    return UserTile(
+    if(userData['email'] != _authService.getCurrentUser()!.email) {
+      return UserTile(
       text: userData['email'],
       onTap:() {
         //tapped on user -> go to chat page
         Navigator.push(context, MaterialPageRoute(
           builder: (context) => ConversationPage(
             receiverEmail: userData["email"],
+            receiverID: userData["uid"],
           ),
           )
         );
       }
     );
+    }else{
+      return Container();
+    }
   }
 }

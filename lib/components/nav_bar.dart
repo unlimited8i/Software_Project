@@ -35,20 +35,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Color.fromARGB(255, 163, 163, 163),
         title: Center(
-          child: Text("E-workout") ),
+          child: Text("E-workout",style: TextStyle(color: Colors.white)) ),
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,
         type: BottomNavigationBarType.fixed,
+        backgroundColor: Color.fromARGB(255, 54, 157, 241),
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'message'),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'history'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
+          BottomNavigationBarItem(icon: Icon(Icons.home ,color: Colors.white,), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.message,color: Colors.white), label: 'message'),
+          BottomNavigationBarItem(icon: Icon(Icons.history,color: Colors.white), label: 'history'),
+          BottomNavigationBarItem(icon: Icon(Icons.person,color: Colors.white), label: 'Account'),
           
         ],
       ),
